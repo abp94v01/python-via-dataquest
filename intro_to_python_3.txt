@@ -1,0 +1,50 @@
+Booleans express conditional logic e.g. is something true or false
+
+# This prints the output class as boolean: class 'bool'
+cat = True
+dog = False
+print(type(cat))
+
+Boolean comparison operators are True when: 
+== same values
+!= different values
+>= greater than or equal to
+<= less than or equal to
+
+e.g. 
+first_alb = (cities[0] == "Albuquerque") #True
+second_alb = (cities[1] == "Albuquerque") #False 
+first_last = (cities[0] == cities[len(cities) - 1]) #is first element equal to last? False.
+
+If statements use booleans to launch code e.g. 
+result = 0 # result is currently zero 
+if cities[2] == "Anchorage": # if third element of cities is "Anchorage" then run the code
+    result = 1 # changes result to 1 if true, which it is.
+
+if statements can be nested within eachother. The second if statement is executed if the first is true e.g. 
+if crime_rates[0] > 500:
+    if crime_rates[1] > 300:
+        both_conditions = True # the 1st element is > 500 and the 2nd element is > 300
+
+combine for and if loops
+# make a list of all the crime rates > 500
+five_hundred_list = []
+for cr in crime_rates: # checks each element in the crime_rates list
+    if cr > 500: # if true then add to five_hundred_list, if not move on to next element
+        five_hundred_list.append(cr)
+
+#find the highest value
+highest = crime_rates[0] #assign first element to highest
+for cr in crime_rates: #checks each element 
+    if highest < cr : #if true then assign new element to highest 
+        highest = cr
+
+
+
+
+
+
+
+
+
+

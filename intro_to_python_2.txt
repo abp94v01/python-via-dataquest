@@ -1,0 +1,28 @@
+open() function opens a file to read/edit e.g. 
+	f = open("file.txt", "r")
+
+read() method opens the file and prints the contents as a string e.g. 
+	data = f.read()
+
+split() method determines how the string is split into elements in a list. The delimiter (seperator) can be a comma or \n (new line) e.g.
+	rows = data.split('\n') # this seperates the elements line by line
+
+for loops are used to iterate over each element in the set/list. These create lists within lists. e.g.
+for row in rows: # for loop for row in dataset rows (ends with COLON)
+    split_list = row.split(',') # seperates each element with commas
+    final_data.append(split_list) # adds these elements to the final_data list
+print(final_data[0:5]) # prints the first five elements
+
+Double brackets are used to show the element within an element of a list e.g. make a list of just the cities (first elements of each list):
+	cities_list = []
+	cities_list.append(five_elements[0][0]) # gives first element of first list
+	cities_list.append(five_elements[1][0]) # gives second element of second list
+
+Use for loop to make the above easier for all elements e.g.
+cities_list = []
+for rows in final_data: 
+    final_datas = rows[0] # each rows contains the first element (cities) from final data
+    cities_list.append(final_datas) # add those first elements/cities to the cities list
+
+
+
