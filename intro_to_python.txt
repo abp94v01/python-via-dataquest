@@ -1,0 +1,52 @@
+object oriented programming - object is a value or variable belonging to a specific class.
+variable (var) = word
+integer (int) = whole number
+float (flt) = decimal number
+string (str) = sentence using quotation marks
+
+e.g. hello_world = "Hello World!" - no need to define that this is string, python handles that. no spaces, always use underscore.
+
+print using print(hello_world) to get 
+	Hello World!
+print multiple variables, in the same line, by seperating with a comma in the arguement e.g.
+print("name of", var_a)
+
+type() function looks up the data type e.g. var, int, str etc e.g. 
+	china_exact = 122.5
+	print(type(china_exact))
+This outputs the class as a float.
+
+str() function converts to strings
+int() function converts to integers e.g.
+	china_rounded = 123
+	int_to_str = str(china_rounded) # gives "123"
+	str_to_int = int(int_to_str) # gives 123
+
+use # instead of // to make comments in python
+
+operators +,-,/,* and ** is used as power to e.g. p ** 2 is p squared.
+
+assign [] to make an empty list e.g. months = []
+list.append() is a METHOD which accepts a value and adds it to a list e.g.
+	countries = []
+	countries.append("China")
+	countries.append("India")
+	countries.append("United States")
+	temperatures = []
+	temperatures.append(122.5)
+	temperatures.append(124.0)
+	temperatures.append(134.1)
+OR 
+	temps = ["China", 122.5, "India", 124.0, "United States", 134.1]
+which is much easier.
+
+zero indexing is used in python which means the first variable is index value 0, then the second being index value 1 and so forth e.g.
+	china = countries[0]
+	china_temperature = temperatures[0]
+
+len() function shows how many elements there are in a list e.g. len(countries) would be 3. The max index value would be len(countries) - 1 so  3 - 1 = 2
+
+To only show some elements of a list you slice e.g.
+	countries_slice = countries[1:4] # shows 2nd 3rd and 4th elements
+	temperatures_slice = temperatures[3:len(temperatures)] # shows last three elements
+
