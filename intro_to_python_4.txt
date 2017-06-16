@@ -1,0 +1,81 @@
+To get single column from the data we do
+weather = []
+for w in weather_data:
+    value = w[1] # this is the second element of each row 
+    weather.append(value) # which makes a column of all the second elements
+
+using count,
+count = 0
+for w in weather: #for each element
+    	count += 1 #add 1 to the count per element to give to the total number of items
+
+use in statement to check if element present in list e.g. 
+animals = ["cat", "dog", "rabbit", "horse", "giant_horrible_monster"]
+cat_found = "cat" in animals #True
+space_monster_found = "space monster" in animals #False
+
+weather_types = ["Rain", "Sunny", "Fog", "Fog-Rain", "Thunderstorm", "Type of Weather"]
+weather_type_found = []
+for weather_type in weather_types: # check each element in weather_types
+    boolean = weather_type in new_weather # if element exists in new_weather then True
+    weather_type_found.append(boolean) # list all booleans i.e. True or False per element
+
+dictionary is like list but indexes aren't confined to numbers, can be strings e.g.
+scores["Tom"] = 70 # The index "Tom" has a score of 70
+
+to create empty dictionary: scores = {} #curly brackets
+
+making a dictionary quickly - key:value, e.g.
+times = {
+    "morning":9,
+    "afternoon":14,
+    "evening":19,
+    "night":23,
+}
+
+modifying a dictionary, e.g.
+# current unmodified dictionary
+students = {
+    "Tom": 60,
+    "Jim": 70
+}
+students["Ann"] = 85 # added key Ann for value 86
+students["Tom"] = 80 # replaced key Tom with 80
+students["Jim"] = students["Jim"] + 5 # added 5 to the value of key Jim
+
+else statements are used with if statements to execute code which don't satisfy the if statement condition e.g.
+# scores of a test
+scores = [80, 100, 60, 30]
+high_scores = [] # empty list of high scores
+low_scores = [] 
+for score in scores:
+    if score > 70: 
+        high_scores.append(score) # add score >70 to high_scores
+    else:
+        low_scores.append(score) # add score <70 to low_scores
+
+# code to count the number of pantries in a list using a dictionary
+pantry = ["apple", "orange", "grape", "apple", "orange", "apple", "tomato", "potato", "grape"]
+pantry_counts = {}
+for p in pantry:
+    if p in pantry_counts:
+        pantry_counts[p] = pantry_counts[p] + 1 
+    else: 
+        pantry_counts[p] = 1
+
+tokenization - converting text into a list.
+
+replace() method changes one string to another e.g. remove the full stops
+story_string = story_string.replace(".","") # replaces all full stops with empty strings
+
+we can make functions using the def keyword which defines the function e.g.
+def clean_text(string_value): # define the clean_text function with string argument
+    cleaned_value = string_value.replace(",", "") # the function removes commas
+    return(cleaned_value) # cleaned_value is returned
+sentence = "Howdy,james,bond!" # the uncleaned sentance
+sentence = clean_text(sentence) # this uses the clean_text function which we defined to remove all commas from the sentance giving "Howdyjamesbond!"
+
+lower() methods converts all strings to lowercase e.g.
+words = HELLO World
+lower_words = words.lower() # gives hello world
+
