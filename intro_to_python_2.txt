@@ -1,5 +1,5 @@
 open() function opens a file to read/edit e.g. 
-	f = open("file.txt", "r")
+	f = open("file.txt", "r") # when you need to use a win path then use double slash e.g "C:\\file.txt"
 
 read() method opens the file and prints the contents as a string e.g. 
 	data = f.read()
