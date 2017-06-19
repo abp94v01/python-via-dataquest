@@ -1,0 +1,45 @@
+code becomes increasingly modular (separated into functions)
+
+Optional Argument in defining functions:
+The third argument represents a boolean, if a function should do something or not. Leaving the third argument blank means the boolean value is False. e.g.
+
+def tokenize(text_string, special_characters, clean=False): # our tokenising function where we define 3rd argument is as clean boolean when default (left blank) is False
+    if clean is True: # if clean arguement true, then clean AND tokenise
+        cleaned_str = clean_text(text_string, special_characters)
+        tokenized_str = cleaned_str.split(" ")
+        return(tokenized_str)
+    if clean is False: # if left blank/false, then JUST tokenise
+        tokenized_str = text_string.split(" ")
+        return(tokenized_str)
+    cleaned_story = clean_text(text_string, special_characters)
+    story_tokens = cleaned_story.split(" ")
+    return(story_tokens)
+
+clean_chars = [",", ".", "'", ";", "\n"] # the 2nd argument special_characters
+tokenized_story = tokenize(story_string, clean_chars, True) # cleaned and tokenised 
+tokenized_vocabulary = tokenize(vocabulary, clean_chars, True) # cleaned and tokenised
+misspelled_words = []
+
+for string in tokenized_story:
+    if string not in tokenized_vocabulary:
+        misspelled_words.append(string)
+
+You can put the arguments in any order ONLY if you assign arguments their variables within the brackets e.g.
+
+tokenized_story = tokenize(text_string = story_string, clean=False, special_characters = clean_chars) # is the same as
+tokenized_story = tokenize(special_characters = clean_chars, text_string = story_string, clean=False)
+
+We can also make defaults arguments that aren't boolean, e.g. our special characters are the following list of punctuation marks unless spcified in the argument when calling the spell_check function.
+sc = [",",".","'",";","\n"]
+def spell_check(vocabulary_file, text_file, special_characters = sc):
+
+syntax (before code in run) errors include:
+Missing ending quotes or starting quotes
+Using improper indentation
+Using improper keywords
+
+runtime (when code in run) errors include:
+Calling a function before it's defined
+Calling a method or attribute that the object doesn't contain
+Attempting to convert a value to an incompatible data type
+

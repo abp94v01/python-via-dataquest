@@ -1,8 +1,11 @@
 open() function opens a file to read/edit e.g. 
-	f = open("file.txt", "r") # when you need to use a win path then use double slash e.g "C:\\file.txt"
+	f = open("file.txt", "r")
 
 read() method opens the file and prints the contents as a string e.g. 
 	data = f.read()
+
+combine to make
+	data = open("file.txt", "r").read
 
 split() method determines how the string is split into elements in a list. The delimiter (seperator) can be a comma or \n (new line) e.g.
 	rows = data.split('\n') # this seperates the elements line by line
