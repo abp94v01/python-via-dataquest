@@ -67,15 +67,23 @@ tokenization - converting text into a list.
 
 replace() method changes one string to another e.g. remove the full stops
 story_string = story_string.replace(".","") # replaces all full stops with empty strings
+or you can use define the variables to replace them e.g. replace(original_str , replacement_str)
 
 we can make functions using the def keyword which defines the function e.g.
-def clean_text(string_value): # define the clean_text function with string argument
+def clean_text(string_value): # define/start the clean_text function with string argument
     cleaned_value = string_value.replace(",", "") # the function removes commas
-    return(cleaned_value) # cleaned_value is returned
-sentence = "Howdy,james,bond!" # the uncleaned sentance
-sentence = clean_text(sentence) # this uses the clean_text function which we defined to remove all commas from the sentance giving "Howdyjamesbond!"
+    return(cleaned_value) # cleaned_value is what the function returns/spits out
+sentence = "Howdy,james,bond!" # the uncleaned sentence
+sentence = clean_text(sentence) # this uses the clean_text function which we defined to remove all commas from the sentence giving "Howdyjamesbond!"
 
 lower() methods converts all strings to lowercase e.g.
 words = HELLO World
 lower_words = words.lower() # gives hello world
+
+def clean_text(text_string, special_characters): # multiple arguements 
+    for sc in special_characters: # for each special char
+        cleaned_string = text_string.replace(sc, '') # replace each special char with space
+        text_string = cleaned_string
+    return(cleaned_string.lower()) # return cleaned_string in lowercase
+
 
