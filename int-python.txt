@@ -1,0 +1,28 @@
+A module is a collection of functions and variables that have been bundled together in a single file. We can import the module using the import statement e.g 
+	import my_module # imports the my_module.py file
+
+Access module functions using dot notation:
+	my_module.some_function()
+
+for example:
+import math as m # alias for imported module
+root = m.sqrt(99)
+
+A namespace is a dictionary that contains all of the names we can refer to in our code. 
+
+csv module opens csv files to make them ready them to use within the python environment using the reader() function e.g.
+import csv
+f= open("nfl.csv")
+csvreader = csv.reader(f) # reader function returns object as data
+nfl = list(csvreader) # convert result to list 
+
+ # Define a function which counts the number of team wins
+def nfl_wins(team, data = nfl):
+    team_wins = 0
+    for row in data:
+        if row[2] == team:
+            team_wins = team_wins + 1
+    return(team_wins)
+
+cowboys_wins = nfl_wins("Dallas Cowboys")
+falcons_wins = nfl_wins("Atlanta Falcons")
