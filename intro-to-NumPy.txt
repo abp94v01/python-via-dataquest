@@ -1,0 +1,85 @@
+ndarray = N-dimensional array type 
+the NumPy module deals with N-dimensional arrays. An array is a collection of values so a:
+1-dimensional array (vector) consists of a[0], a[1], a[2], a[3], ... a[n]
+2-dimensional array (matrix) conists of elements b[0,0], b[0,1], ... b[n,m]
+
+using the NumPy module to construct matrices:
+
+import numpy as np
+vector = np.array([10,20,30])
+matrix = np.array([[5,10,15],[20,25,30],[35,40,45]]) # similar to mathematica
+matrix_shape = matrix.shape # shape property gives the number of elements in matrix, in this case it's 3 x 3
+
+# genfromtxt() function takes csv and converts it to ndarray
+world_alcohol = numpy.genfromtxt("world_alcohol.csv", delimiter = ",")
+# dtype property gives the type of data of the arrays, e.g. ints or str or float etc
+world_alcohol_dtype = world_alcohol.dtype # gives float64
+
+nan means not a number. standard form: 1e+02 = 1x10^2 = 100
+
+skip_header parameter allows us to remove headers when reading in csv file e.g.
+world_alcohol = numpy.genfromtxt("world_alcohol.csv", dtype = "U75", skip_header =1,delimiter = ",") # skip_header = 1 to remove first line only
+
+specify the element of a matrix with: matrix[0][1] # first row, second column
+slicing vector: vector[0:3] # gives first 3 elements
+slicing matrix: 
+matrix[:,2] # gives entire 3rd column only, colon means give all rows
+matrix[:,0:2] # gives only columns 1 and 2
+
+comparisons of arrays give boolean values e.g.
+vector = numpy.array([5, 10, 15, 20])
+vector == 10 # gives [False, True, False, False]
+
+country_is_algeria = (world_alcohol[:,2] == "Algeria") # compare 3rd column to "Algeria"
+country_algeria = world_alcohol[country_is_algeria] # select rows only where above is True 
+use "&" for conditions 1 AND 2 
+use "|" for conditions 1 OR 2 e.g.
+is_algeria_and_1986 = (world_alcohol[:,0] == "1986") & (world_alcohol[:,2] == "Algeria")
+
+use booleans to replace e.g.
+fourth_column_wine = (world_alcohol[:,3] == "Wine") # condition that chooses "Wine" in 4th column
+world_alcohol[fourth_column_wine,3] = "Grog" # all "Wine" rows in 4th column becomes "Grog"
+
+Avoid ValueError when converting strings to floats by replacing all empty space '' with string '0'
+is_value_empty = (world_alcohol[:,4] == '') 
+world_alcohol[is_value_empty, 4] = "0" # all empty values in 5th column become "0"
+
+astype() method converts datatypes, like int to floats e.g.
+vector = numpy.array(["1", "2", "3"])
+vector = vector.astype(float) # gives [1.0, 2.0, 3.0]
+
+some NumPy methods:
+sum() -- computes sum of all elements vector or along dimension in matrix
+mean() -- computes mean of all ""
+max() -- identifies max val of all ""
+
+is_canada_1986 = (world_alcohol[:,0] == "1986") & (world_alcohol[:,2] == "Canada") # make matrix of 1st column = 1986 and 3rd column = Canada
+canada_1986 = world_alcohol[is_canada_1986,:] # all rows of matrix follow above with all columns of world_alcohol matrix
+canada_alcohol = canada_1986[:,4] # 5th column of matrix
+empty_strings == '' 
+canada_alcohol[empty_strings] = "0" # converts empty space to 0 strings
+canada_alcohol = canada_alcohol.astype(float) # converts 5th column to floats
+total_canadian_drinking = canada_alcohol.sum() # sum of all elements in 5th column
+
+totals = {} # dictionary of total country consumption, key = country, value = consumption
+is_year = world_alcohol[:,0] == "1989" # for the year 1989
+year = world_alcohol[is_year,:]
+
+for country in countries:
+    is_country = year[:,2] == country # countries for year 1989
+    country_consumption = year[is_country,:]
+    alcohol_column = country_consumption[:,4] # consumption for countries
+    is_empty = alcohol_column == ''
+    alcohol_column[is_empty] = "0"
+    alcohol_column = alcohol_column.astype(float) # convert consumption to floats
+    totals[country] = alcohol_column.sum() # assign country keys to value consumption in dictionary
+
+highest_value = 0
+highest_key = None
+for country in totals: # checks each key in totals dictionary
+    consumption = totals[country] # assigning the dictionary value to consumption
+    if highest_value < consumption:
+        highest_value = consumption
+        highest_key = country
+
+
