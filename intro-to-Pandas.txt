@@ -1,0 +1,22 @@
+Pandas library is best used for tabular data. import pandas.
+
+pandas uses row index (0,1,2..) and column index (header titles)
+
+loc[] method gives the row e.g. 
+hundredth_row = food_info.loc[99] # gives 100th row
+
+saturated_fat = food_info["FA_Sat_(g)"] # gives the saturated fat column
+selenium_thiamin = food_info[["Selenium_(mcg)", "Thiamin_(mg)"]] # multiple columns
+
+column_names = food_info.columns.tolist()
+gram_columns = []
+for column in column_names:
+    if column.endswith("(g)"):
+        gram_columns.append(column)
+gram_df = food_info[gram_df]
+
+import pandas as pd
+unrate = pd.read_csv("unrate.csv") # reads in csv file
+unrate['DATE'] = pd.to_datetime(unrate['DATE']) # converts DATE column into datetime values
+print(unrate.head(12)) # displays the first 12 rows in unrate
+

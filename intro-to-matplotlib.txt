@@ -1,0 +1,15 @@
+matplotlib is a library used to plot data
+
+import matplotlib.pyplot as plt
+plt.plot(x_values, y_values) # generates plot
+plt.show() # shows the plot 
+
+e.g
+# Assigned first 12 rows to a variable just for easy reference.
+first_twelve = unrate[0:12] # first 12 rows
+plt.plot(first_twelve['DATE'], first_twelve['VALUE']) # x=date, y=value
+plt.xticks(rotation=90) # rotate x-axis labels 90 (horizontal to vertical)
+plt.xlabel("Month") # x axis label
+plt.ylabel("Unemployment Rate") # y axis label
+plt.title("Monthly Unemployment Trends, 1938") # plot title
+plt.show()

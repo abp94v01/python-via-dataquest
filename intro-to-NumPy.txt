@@ -8,7 +8,10 @@ using the NumPy module to construct matrices:
 import numpy as np
 vector = np.array([10,20,30])
 matrix = np.array([[5,10,15],[20,25,30],[35,40,45]]) # similar to mathematica
-matrix_shape = matrix.shape # shape property gives the number of elements in matrix, in this case it's 3 x 3
+matrix_shape = matrix.shape # shape property gives the number of rows and columns in a matrix as a tuple, in this case it's 3,3
+
+size gives number of elements as an int e.g
+matrix.size # = 9  
 
 # genfromtxt() function takes csv and converts it to ndarray
 world_alcohol = numpy.genfromtxt("world_alcohol.csv", delimiter = ",")
